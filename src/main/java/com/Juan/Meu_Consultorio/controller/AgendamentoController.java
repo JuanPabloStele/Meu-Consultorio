@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/agendamentos")
@@ -35,7 +36,7 @@ public class AgendamentoController {
 
 
     @GetMapping
-    public ResponseEntity<AgendamentoEntity> buscarAgendamentoDoDia(LocalDate data){
+    public ResponseEntity<List<AgendamentoEntity>> buscarAgendamentoDoDia(LocalDate data){
         return ResponseEntity.ok().body(agendamentoService.buscarAgendamentoDoDia(data));
     }
 
