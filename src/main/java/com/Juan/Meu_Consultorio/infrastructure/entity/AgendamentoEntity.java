@@ -1,4 +1,4 @@
-package com.Juan.Meu_Consultorio.services.entity;
+package com.Juan.Meu_Consultorio.infrastructure.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +19,7 @@ public class AgendamentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     private String servico;
 
