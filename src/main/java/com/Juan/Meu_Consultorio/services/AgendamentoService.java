@@ -45,4 +45,14 @@ public class AgendamentoService {
         return agendamentoRepository.findByDataHoraAgendamentoBetween(primeiraHoraDia, horaFinalDia);
     }
 
+    public AgendamentoEntity alterarAgendamento(AgendamentoEntity agendamento, String cliente, LocalDateTime dataHoraAgendamento){
+        AgendamentoEntity agenda = agendamentoRepository.findByDataHoraAgendamentoAndCliente(dataHoraAgendamento,cliente);
+        if (Objects.isNull(agenda)){
+            throw new RuntimeException("Horário não está preenchiodo");
+
+        }
+        agendamento.setId(agenda.getId());
+        return agendamentoRepository.save(agendamento);
+    }
+
 }
